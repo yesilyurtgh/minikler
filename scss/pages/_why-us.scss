@@ -1,0 +1,102 @@
+.why-us {
+    @include sections-property;
+    @include flex(center, center, 25);
+    flex-direction: column;
+    padding: 0 70px ;
+
+    &_top {
+        @include flex(center, center, 10);
+        flex-direction: column;
+
+        h5 {
+            
+            color: $color-text;
+        }
+
+        h2 {
+            font-size: 45px;
+            color: $color-text;
+        }
+
+        p {
+            font-size: 25px;
+            color: $color-text;
+        }
+
+    }
+
+    &_bottom {
+        
+        display: grid;
+        grid-template-columns: 40% 40%;
+        justify-content: center;
+        gap: 25px;
+        grid-template-rows: 25vh;
+        /*En alttaki cardın 2 sutunluk kadar yer kaplaması için*/
+        .card:nth-of-type(3){
+            grid-column: 1 / 3 ; 
+            height: 25vh;
+           /*figure right normalde absolute olup yazı ile birlikte kullanılıuyordu. 
+           Ama 4. resimin arka planı geniş olduğu için burada önceden verdiğim width değerini yok sayıp yazı ile üstüste gelmesini önledim. 
+           z index ile de yapabilirdim. bunu tercih ettim.*/
+            .figure-right{
+                width: unset; 
+                img{
+                    border-radius: 10px;
+                }
+            }          
+        }
+        .card {
+            @include flex(space-between, center, 10);
+            background-color: white;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px $color-text;
+            position: relative;
+            &:hover{
+                transform: scale(1.1);
+                transition: all .3s ease;
+            }
+            .figure-left {
+                width: 50%; 
+                height: 100%;
+                img {width: 100%; 
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            &_text {
+                @include flex(center, flex-start, 10);
+                flex-direction: column;
+                width: 200%;
+                height: 100%;
+
+                h5 {
+                    font-size: 20px;
+                    color: $color-text;
+                }
+
+                p {
+                    width: 80%;                 
+                    font-size: 15px;
+                    color: $color-text;
+                }
+            }
+
+            .figure-right {
+                position: absolute;
+                right: 0;
+                width: 30%; 
+                height: 100%;
+                img {
+                    width: 100%; 
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+            }
+        }
+    }
+}

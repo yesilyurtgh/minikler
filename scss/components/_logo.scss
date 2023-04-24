@@ -1,0 +1,9 @@
+%logo{
+    color: $color-text;
+    
+    font-family: 'Josefin Sans', sans-serif;
+   
+    letter-spacing: -3px;
+    cursor: pointer;
+    @include border-mix;
+}

@@ -1,0 +1,54 @@
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: $color-bg;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    @include flex(space-around, center, null);
+
+    .fa-bars {
+        display: none;
+
+        @media (max-width: 600px) {
+            display: inline-block;
+        }
+    }
+
+    ul {
+        list-style: none;
+        @include flex(center, center, 20);
+
+        li {
+            a {
+                text-decoration: none;
+                color: $color-text;
+                border-bottom: 2px solid transparent;
+
+                @extend %font-family-text;
+
+                &:hover {
+                    font-weight: 500;
+                    @include border-mix;
+                    transition: all .4s ease;
+                }
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    h2 {
+        @extend %logo;
+    }
+
+    .buttons {
+        button {
+            @extend %button;
+
+        }
+    }
+}

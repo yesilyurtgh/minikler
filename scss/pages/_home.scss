@@ -1,0 +1,87 @@
+.hero {
+    
+    @include sections-property;
+    @include flex(center, center, null);
+    height: 90vh;
+    
+
+    &_container {
+        width: 85%;
+        height: 80vh;
+        background-color: $color-text;
+        border-radius: 20px;
+        @include flex(center, center, 25);
+        flex-direction: column;
+        position: relative;
+
+        h1 {
+            font-size: 45px;
+            width: 40%;
+            text-align: center;
+            color: $color-bg;
+            @media (max-width: 600px) {
+                font-size: 40px;
+            }
+        }
+
+        p {
+            font-size: 25px;
+            width: 40%;
+            text-align: center;
+            color: $color-bg;
+            @media (max-width: 600px) {
+                font-size: 20px;
+            }
+        }
+
+        button {
+            @extend %button;
+        }
+
+        div {
+            &:nth-child(1) {
+                @include shape(200, 360, 120, 110);
+                left: 15px;
+                top: 50px;
+                transform: skewY(30deg);
+                @include shape-anim(left, top);
+                background-image: url(/images/shape1.webp);
+                background-size: cover;
+                
+            }
+
+            &:nth-child(2) {
+                @include shape(70, 250, 300, 110);
+                left: 15px;
+                bottom: 60px;
+                transform: skewY(-30deg);
+                @include shape-anim(left, bottom);
+                background-color: rgb(196, 206, 105);
+            }
+
+            &:nth-child(3) {
+                @include shape(300, 150, 110, 250);
+                right: 20px;
+                top: 75px;
+                transform: skewY(-30deg);
+                @include shape-anim(right, top);
+                background-color: rgb(159, 233, 217);
+            }
+            
+
+            &:nth-child(4) {
+                @include shape(250, 150, 200, 300);
+                right: 10px;
+                bottom: 50px;
+                transform: rotateX(0deg) skewY(30deg);
+                @include shape-anim(right, bottom);
+                background-image: url(/images/shape3.webp);
+                background-size: cover;
+            }
+
+
+        }
+    }
+
+
+}

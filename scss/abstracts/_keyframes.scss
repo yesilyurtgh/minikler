@@ -1,0 +1,34 @@
+//Hero sayfasındaki şekillerin herbiri için ayrı keyframeler yazarak 
+//birbirlerinden bağımsız hareket etmelerini sağladım
+@keyframes shape-anim-lt {
+    0%{left: 15px; top: 50px;}
+    20%{left: 20px; top: 65px;}
+    40%{left: 25px; top: 65px;}
+    60%{left: 30px; top:70px;}
+    80%{left: 35px; top: 80px;}
+    100%{left: 40px; top: 80px;}
+}
+@keyframes shape-anim-lb {
+    0%{left: 15px; bottom: 60px;}
+    20%{left: 20px; bottom: 75px;}
+    40%{left: 25px; bottom: 75px;}
+    60%{left: 30px; bottom: 80px;}
+    80%{left: 35px;bottom: 85px;}
+    100%{left: 40px; bottom: 85px;}
+}
+@keyframes shape-anim-rt {
+    0%{right: 20px; top: 70px;}
+    20%{right: 25px; top: 85px;}
+    40%{right: 25px; top: 90px;}
+    60%{right: 30px; top: 90px;}
+    80%{right: 35px;top: 95px;}
+    100%{right: 40px; top: 95px;}
+}
+@keyframes shape-anim-rb {
+    0%{right: 15px; bottom: 60px;}
+    20%{right: 20px; bottom: 75px;}
+    40%{right: 25px; bottom: 75px;}
+    60%{right: 30px; bottom: 80px;}
+    80%{right: 35px;bottom: 85px;}
+    100%{right: 40px; bottom: 85px;}
+}

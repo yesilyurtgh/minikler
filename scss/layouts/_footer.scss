@@ -1,0 +1,110 @@
+footer {
+    @include flex(center, center, 10);
+    flex-direction: column;
+    background-color: $color-bg;
+    width: 100%;
+    height: 50vh;
+
+    .footer_top {
+        @include flex(center, center, 10);
+        width: 100%;
+        height: 70%;
+        margin: 20px;
+        .footer_top_left {
+            @include flex(center, center, 10);
+            flex-direction: column ;
+            width: 30%;
+            background-color: $color-text;
+            border-radius: 10px;
+            padding: 25px;
+            height: 100%;
+            position: relative;
+
+            h3 {
+                color: white;
+                font-weight: 400 ;
+                font-size: 25px;
+            }
+
+            p {
+                color: white;
+                font-size: 14px;
+                z-index: 1;
+            }
+
+            button {
+                @extend %button;
+                align-self: flex-start;
+                z-index: 1;
+            
+            }
+
+            div {
+                position: absolute;
+            
+                background-color: burlywood;
+               
+                opacity: .7;
+                left: 0;
+                bottom: 0;
+                transform: skew(150deg) rotateY(20deg);
+                width: 30%;
+                height: 60%;
+                overflow: hidden;
+                z-index: 0;
+                
+                border-radius: 250px 300px;
+               
+            }
+        }
+
+        .footer_top_right {
+            @include flex(flex-start, flex-start, 30);
+            width: 60%;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            height: 100%;
+
+
+            div {}
+
+            .pages {
+                @include flex(center, flex-start, 10);
+                flex-direction: column;
+                
+                
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+            }
+
+            .info {
+                @include flex(center, flex-start, 10);
+                flex-direction: column;
+                color: $color-text;
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+            }
+
+            .social {
+                @include flex(center, flex-start, 10);
+                flex-direction: column;
+                color: $color-text;
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+                }
+            }
+
+
+        }
+
+    }
+
+
+
+}

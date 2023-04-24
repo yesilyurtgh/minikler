@@ -1,0 +1,76 @@
+//Bütün sectionlar için
+@mixin sections-property {
+    width: 100%;
+    height: 100vh;
+    background-color: $color-bg;
+
+}
+
+//Bu mixin ile flex yapısını tek satırda kullanabilmek için yazdım.
+@mixin flex($jc, $ai, $gap) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: #{$gap}px;
+}
+
+//Köşleri dağınık kenarlık  
+@mixin border-mix {
+    border: 1px solid $color-text;
+    border-radius: 120px 70px 20px 50px;
+    box-shadow: 0 0 10px $color-text;
+    padding: 10px;
+}
+
+//Hover olunca altta çizgi oluşması için 
+@mixin hover-underline {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        bottom: 0;
+        border-radius: 10px;
+        background-color: $color-text;
+        transform: scaleX(0);
+    }
+
+    &:hover {
+        &::after {
+            position: absolute;
+            width: 90%;
+            height: 15%;
+            transform: scaleX(1);
+            transition: all .5s ease;
+        }
+
+        font-weight: bold;
+    }
+}
+//Hero sectiondaki arkaplan üçgen şekilleri 
+@mixin shape ($b-r1,$b-r2,$b-r3,$b-r4  ) {
+    position: absolute;
+    border: 1px solid $color-text;
+    width: 20%;
+    height: 20vh;
+    box-shadow: 0 0 10px $color-bg;
+    border-top-left-radius: #{$b-r1}px;
+    border-top-right-radius: #{$b-r2}px;
+    border-bottom-right-radius: #{$b-r3}px;
+    border-bottom-left-radius:#{$b-r4}px;
+    transform: skew(30deg) rotateY(45deg);
+}
+//Hero sectiondaki arkaplan üçgen şekillerinın animasyonları 
+@mixin shape-anim($position1, $position2){
+    @if $position1=="left" and $position2=="top"{
+        animation: shape-anim-lt 4s linear infinite alternate;
+    }@else if $position1=="left" and $position2=="bottom"{
+        animation: shape-anim-lb 4s linear infinite 1s alternate;
+    }@else if $position1=="right" and $position2=="top"{
+        animation: shape-anim-rt 4s linear infinite 1s alternate;
+    }@else if $position1=="right" and $position2=="bottom"{
+        animation: shape-anim-rb 4s linear infinite alternate;
+    }  
+}
+

@@ -1,0 +1,75 @@
+.faq {
+    @include sections-property;
+    @include flex(center, center, 25);
+    flex-direction: column;
+
+    &_title {
+        width: 70%;
+        @include flex(space-between, center, null);
+
+        h2 {
+            font-size: 45px;
+            font-weight: 400;
+            color: $color-text;
+        }
+
+        button {
+            @extend %button;
+        }
+    }
+
+    &_cards {
+        @include flex(center, center, 20);
+        flex-direction: column;
+      
+        width: 70%;
+        &_card {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            &-title {
+                @include flex(space-between, center, 20);
+                cursor: pointer;
+                p {
+                    color: $color-text;
+                }
+
+                .fa-circle-plus {
+                    color: $color-text;
+                }
+
+                .fa-circle-minus {
+                    color: $color-text;
+                    display: none;
+                }
+                &:hover .fa-circle-plus {
+                    display: none;
+                }
+                &:hover .fa-circle-minus {
+                    display: inline-block;
+                }
+               
+
+            }
+            input{
+                display: none;
+                transition: all 1s ease;
+                &:checked + .faq_cards_card-detail{
+                    visibility: visible;
+                    margin-top: 0;
+                    transition: all .3s ease;
+                }
+                    
+            }
+
+            &-detail {
+                color: $color-text;
+                visibility: hidden;
+                margin-top: -40px;
+                transition: margin-top .3s ease;
+            }
+        }
+    }
+}

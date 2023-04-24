@@ -1,0 +1,164 @@
+.how-work {
+
+    @include sections-property;
+    position: relative;
+
+    .text-container {
+        @include flex(center, flex-start, 25);
+        flex-direction: column;
+        width: 60%;
+        height: 100%;
+        padding: 100px 70px;
+
+        @media (max-width: 600px) {
+            padding: 50px 30px;
+            gap: 15px;
+        }
+
+        h5 {
+            font-size: 10px;
+            color: $color-text;
+
+        }
+
+        h2 {
+            font-size: 45px;
+            font-weight: 400;
+            width: 70%;
+            line-height: 40px;
+            color: $color-text;
+
+            @media (max-width: 600px) {
+
+                font-size: 25px;
+                line-height: 25px;
+                
+            }
+        }
+
+        p {
+            width: 100%;
+            color: $color-text;
+        }
+
+        /* ul deki li'ler hover olunca sağ taraftaki figure containerler aşağıdan yukarı kayarak görünür olmalarını istiyorum.
+Başlangıç değerlerini bottom=0 olarak verip hover olunca 100px yaptım. Ama böyle olunca hover olmayan durumlarda sağ taraf boş kalıyordu.
+Bu yüzden ul'den sonra bir figure-container daha tanımlayıp onu görünür yaptım. Ul'hover olunca sabit olanı gizleyip li'lerin hoverlarını aktif ettim. */
+        ul {
+            
+            li {
+
+                list-style: none;
+
+                i {
+                    color: $color-text;
+                    display: none;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: $color-text;
+
+                    &:hover+i {
+                        display: inline-block;
+                    }
+
+                    &:hover+i+.figure-container {
+                        z-index: 10;
+                        bottom: 100px;
+                        transition: all 0.5s ease;
+                    }
+                }
+
+                .figure-container {
+                    z-index: -10;
+                    position: absolute;
+                    right: 50px;
+                    bottom: 0;
+                    width: 30%;
+                    height: 65%;
+                    background-color: white;
+                    border-radius: 20px;
+                    padding: 20px;
+
+                    @media (max-width: 600px) {
+
+                        right: 20px;
+                        width: 50%;
+
+                    }
+                }
+
+                figure {
+                    width: 100%;
+                    height: 70%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        background-position: center;
+                        background-size: cover;
+                        border-radius: 20px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: $color-text;
+                        margin: 10px;
+                        @media (max-width: 600px) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            /* Burada ul hover olunca ul'den sonra gelen sabit figure-container kayboluyor*/
+            &:hover+.figure-container {
+                z-index: -10;
+            }
+        }
+    }
+
+    /*ul'den sonra gelen sabit figure-container*/
+    .figure-container {
+
+        position: absolute;
+        right: 50px;
+        bottom: 100;
+        width: 30%;
+        height: 65%;
+
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+
+        @media (max-width: 600px) {
+
+            right: 20px;
+            width: 50%;
+
+        }
+
+        figure {
+            width: 100%;
+            height: 70%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                border-radius: 20px;
+            }
+
+            p {
+                font-size: 14px;
+                color: $color-text;
+                margin: 10px;
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
