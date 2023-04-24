@@ -3,6 +3,9 @@
     @include flex(center, center, 25);
     flex-direction: column;
     padding: 0 70px ;
+    @media (max-width: 600px) {
+        padding: 0 20px; 
+    }
 
     &_top {
         @include flex(center, center, 10);
@@ -16,26 +19,42 @@
         h2 {
             font-size: 45px;
             color: $color-text;
+            @media (max-width: 600px) {
+                font-size: 40px;
+            }
         }
 
         p {
             font-size: 25px;
             color: $color-text;
+            @media (max-width: 600px) {
+                font-size: 20px;
+            }
         }
 
     }
 
     &_bottom {
-        
+    
         display: grid;
         grid-template-columns: 40% 40%;
         justify-content: center;
         gap: 25px;
         grid-template-rows: 25vh;
+        
+        @media (max-width: 600px) {
+           display: flex;
+           flex-direction: column;
+          
+        }
         /*En alttaki cardın 2 sutunluk kadar yer kaplaması için*/
         .card:nth-of-type(3){
             grid-column: 1 / 3 ; 
             height: 25vh;
+            @media (max-width: 600px) {
+                grid-column: unset ; 
+                height: 15vh;
+             }
            /*figure right normalde absolute olup yazı ile birlikte kullanılıuyordu. 
            Ama 4. resimin arka planı geniş olduğu için burada önceden verdiğim width değerini yok sayıp yazı ile üstüste gelmesini önledim. 
            z index ile de yapabilirdim. bunu tercih ettim.*/
@@ -54,13 +73,23 @@
             border-radius: 10px;
             box-shadow: 0 0 10px $color-text;
             position: relative;
+            
+            
             &:hover{
                 transform: scale(1.1);
                 transition: all .3s ease;
             }
+            @media (max-width: 600px) {
+                height: 15vh;
+                padding: 5px;
+             }
             .figure-left {
                 width: 50%; 
                 height: 100%;
+                @media (max-width: 600px) {
+                    height: 70%;
+                    
+                 }
                 img {width: 100%; 
                     height: 100%;
                     object-fit: contain;
@@ -83,6 +112,14 @@
                     font-size: 15px;
                     color: $color-text;
                 }
+                @media (max-width: 600px) {
+                  h5{
+                    font-size: 15px;
+                  }
+                  p{
+                    font-size: 10px;
+                  }
+                 }
             }
 
             .figure-right {
@@ -90,6 +127,11 @@
                 right: 0;
                 width: 30%; 
                 height: 100%;
+                @media (max-width: 600px) {
+                    height: 70%;
+                    
+                 }
+                
                 img {
                     width: 100%; 
                     height: 100%;
